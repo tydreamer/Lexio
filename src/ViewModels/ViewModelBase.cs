@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ReactiveUI;
+﻿using ReactiveUI;
 
 namespace Lexio.ViewModels
 {
-    public class ViewModelBase : ReactiveObject
+    public abstract class ViewModelBase : ReactiveObject
     {
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Lexio.ViewModels
+﻿namespace Lexio.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
