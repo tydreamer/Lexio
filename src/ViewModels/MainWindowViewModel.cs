@@ -1,7 +1,4 @@
-﻿using Avalonia.Controls;
-using ReactiveUI;
-using Lexio.Extensions;
-using Lexio.Views;
+﻿using ReactiveUI;
 
 namespace Lexio.ViewModels
 {
@@ -15,17 +12,6 @@ namespace Lexio.ViewModels
         {
             get => _content; 
             set => this.RaiseAndSetIfChanged(ref _content, value);
-        }
-        
-        private void OpenAddPage()
-        {
-            var window = new AddLessonWindow
-            {
-                DataContext = new AddLessonViewModel()
-            };
-            
-            if(AssignedView is Window parentWindow)
-                window.ShowDialogSafe(parentWindow);
         }
     }
 }
