@@ -1,6 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Lexio.ViewModels;
 
 namespace Lexio.Views
 {
@@ -9,8 +8,6 @@ namespace Lexio.Views
         public LessonListView()
         {
             InitializeComponent();
-            if (DataContext is ViewModelBase viewModel)
-                viewModel.AssignedView = this;
         }
 
         private void InitializeComponent()

@@ -1,5 +1,4 @@
 ﻿using System;
-using Avalonia.Controls;
 using ReactiveUI;
 
 namespace Lexio.ViewModels
@@ -8,16 +7,13 @@ namespace Lexio.ViewModels
     {
         private ViewModelBase _content;
 
-        public MainWindowViewModel(Window assignedWindow)
+        public MainWindowViewModel()
         {
-            AssignedView = assignedWindow;
-            ParentWindow = assignedWindow;
-            
             var lessons = Array.Empty<object>(); // TODO: Retrieve saved lessons
-            _content = Content = new LessonListViewModel(lessons, assignedWindow);
+            _content = Content = new LessonListViewModel(lessons, this);
         } 
 
-        private ViewModelBase Content
+        internal ViewModelBase Content
         {
             get => _content; 
             set => this.RaiseAndSetIfChanged(ref _content, value);
