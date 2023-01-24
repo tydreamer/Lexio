@@ -11,6 +11,8 @@ namespace Lexio.Models
         {
             _containerCollection = containerCollection;
         }
+        
+        public string? Definition { get; set; }
 
         protected virtual void Remove()
             => _containerCollection?.Remove(this);
