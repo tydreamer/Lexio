@@ -6,6 +6,6 @@ namespace Lexio.Models
     {
         public SingleVocabularyItem(IList? containerCollection = null) : base(containerCollection) { }
         
-        internal string? Definition { get; set; }
+        public string? Definition { get; set; }
     }
 }
