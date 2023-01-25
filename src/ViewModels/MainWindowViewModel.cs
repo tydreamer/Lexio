@@ -9,6 +9,7 @@ namespace Lexio.ViewModels
 
         public MainWindowViewModel()
         {
+            DataManager.LoadData();
             _content = Content = NewLessonList;
         } 
 
