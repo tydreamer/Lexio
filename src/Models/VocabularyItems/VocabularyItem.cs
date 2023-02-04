@@ -24,6 +24,9 @@ namespace Lexio.Models
         
         internal IList? ContainerCollection { get; set; }
 
+        protected internal virtual void SaveChanges()
+            => this.Definition = ChangedDefinition;
+
         protected virtual void Remove()
             => ContainerCollection?.Remove(this);
 
