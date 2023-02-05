@@ -1,5 +1,5 @@
 using System.Collections.ObjectModel;
-using ReactiveUI;
+using Lexio.Extensions;
 using Lexio.Interfaces;
 using Lexio.Models;
 
@@ -7,15 +7,8 @@ namespace Lexio.ViewModels
 {
     public class AddLessonViewModel : ViewModelBase, IVocabularyContainer<Word>
     {
-        public AddLessonViewModel()
-        {
-            VocabularyItems.CollectionChanged += (sender, args) =>
-            {
-                this.RaisePropertyChanged(nameof(AdjustableItemsString));
-                for (int i = 0; i < VocabularyItems.Count; i++)
-                    VocabularyItems[i].Index = i;
-            };
-        }
+        public AddLessonViewModel() 
+            => VocabularyItems.CalculateIndexReactive(this, false, nameof(AdjustableItemsString));
 
         internal MainWindowViewModel? MainWindowRef { get; init; }
         

@@ -1,3 +1,4 @@
+using Lexio.Extensions;
 using Lexio.Models;
 
 namespace Lexio.ViewModels
@@ -5,8 +6,11 @@ namespace Lexio.ViewModels
     public class LessonViewModel : ViewModelBase
     {
         public LessonViewModel(Lesson lesson)
-            => this.CurrentLesson = lesson;
-        
+        {
+            this.CurrentLesson = lesson;
+            lesson.VocabularyItems.CalculateIndexReactive(this, true, nameof(AdjustableItemsString));
+        }
+
         private Lesson CurrentLesson { get; }
         private string AdjustableItemsString => CurrentLesson.VocabularyItems.Count == 1 ? "item" : "items";
 
