@@ -96,6 +96,16 @@ namespace Lexio.Models
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = "") 
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        // internal void DebugUnsavedChanges()
+        // {
+        //     Utilities.Log("Lesson:\n-------");
+        //     foreach(var x in _changedWords)
+        //         Utilities.Log($"      • {x.ChangedTerm} ({x.Term}) ---- {x.ChangedDefinition} ({x.Definition})");
+        //     Utilities.Log(" ");
+        //     foreach (var y in VocabularyItems)
+        //         y.DebugUnsavedChanges();
+        // }
+
         internal void SaveChanges()
         {
             this.Name = ChangedName;
