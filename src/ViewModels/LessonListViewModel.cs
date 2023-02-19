@@ -32,7 +32,10 @@ namespace Lexio.ViewModels
 
         private void OpenLesson(Lesson lesson)
         {
-            _parentViewModel.Content = new LessonViewModel(lesson);
+            _parentViewModel.Content = new LessonViewModel(lesson)
+            {
+                MainViewModel = _parentViewModel
+            };
         }
     }
 }

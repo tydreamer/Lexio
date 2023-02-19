@@ -40,7 +40,7 @@ namespace Lexio.Models
         public override void EqualizeChangedData()
         {
             base.EqualizeChangedData();
-            this.Term = this.ChangedTerm;
+            this.ChangedTerm = this.Term;
         }
 
         protected internal override void SaveChanges()
