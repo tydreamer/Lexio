@@ -1,24 +1,18 @@
 using System;
-using System.ComponentModel;
 using System.IO;
 using System.Reactive;
-using System.Runtime.CompilerServices;
 using Avalonia;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using ReactiveUI;
-using Lexio.Interfaces;
 using Path = System.IO.Path;
 
 namespace Lexio.Models
 {
-    public class LearningModeItem : INotifyPropertyChangedHelper
+    public class LearningModeItem
     {
-        private bool _descriptionEnabled;
         private static readonly string _assetsPath =
             Path.Combine(("avares:" + Path.DirectorySeparatorChar + Path.DirectorySeparatorChar + "Lexio"), "Assets");
-        
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         public LearningModeItem(string iconFileName, string name, string description, Action clickAction)
         {
@@ -33,21 +27,6 @@ namespace Lexio.Models
         internal string Description { get; }
         internal ReactiveCommand<Unit,Unit> ClickCommand { get; }
 
-        internal bool DescriptionEnabled
-        {
-            get => _descriptionEnabled;
-            set
-            {
-                if (_descriptionEnabled == value)
-                    return;
-                _descriptionEnabled = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public void NotifyPropertyChanged([CallerMemberName] string propertyName = "") 
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        
         private static Bitmap CreateImage(string fileName)
         {
             string path = Path.Combine(_assetsPath, fileName);
