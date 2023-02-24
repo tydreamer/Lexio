@@ -38,6 +38,8 @@ namespace Lexio.Models
             get => _descriptionEnabled;
             set
             {
+                if (_descriptionEnabled == value)
+                    return;
                 _descriptionEnabled = value;
                 NotifyPropertyChanged();
             }
