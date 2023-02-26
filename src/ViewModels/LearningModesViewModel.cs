@@ -1,3 +1,4 @@
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Lexio.Models;
 using Lexio.ViewModels.LearningModes;
 
@@ -24,6 +25,8 @@ namespace Lexio.ViewModels
         private static void OpenLearningMode<T>() where T : LearningModeViewModelBase, new()
         {
             var viewModel = new T();
+            if(MainWindowViewModel.Instance is { } mainInstance)
+                mainInstance.Content = viewModel;
         }
     }
 }
