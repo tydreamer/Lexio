@@ -1,4 +1,3 @@
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Lexio.Models;
 using Lexio.ViewModels.LearningModes;
 
