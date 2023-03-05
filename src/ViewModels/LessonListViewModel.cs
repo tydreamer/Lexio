@@ -36,6 +36,7 @@ namespace Lexio.ViewModels
             {
                 MainViewModel = _parentViewModel
             };
+            MainWindowViewModel.CurrentLesson = lesson;
         }
     }
 }
