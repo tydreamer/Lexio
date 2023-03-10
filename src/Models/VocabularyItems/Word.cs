@@ -12,6 +12,8 @@ using Lexio.Enums;
 using Lexio.Interfaces;
 using Lexio.Models.ItemStyleControls;
 using Lexio.UtilityCollection;
+using Lexio.ViewModels;
+
 #pragma warning disable CS0659
 
 namespace Lexio.Models
@@ -160,6 +162,7 @@ namespace Lexio.Models
                 Utilities.AddChangedItems(_changedSynonyms, args);
                 if (args.Action is NotifyCollectionChangedAction.Add or NotifyCollectionChangedAction.Remove)
                     NotifyDataChanged();
+                MainWindowViewModel.CurrentLesson?.InvokeNotifyChanges();
             };
             Antonyms.CollectionChanged += (sender, args) =>
             {
@@ -167,6 +170,7 @@ namespace Lexio.Models
                 Utilities.AddChangedItems(_changedAntonyms, args);
                 if (args.Action is NotifyCollectionChangedAction.Add or NotifyCollectionChangedAction.Remove)
                     NotifyDataChanged();
+                MainWindowViewModel.CurrentLesson?.InvokeNotifyChanges();
             };
         }
 
