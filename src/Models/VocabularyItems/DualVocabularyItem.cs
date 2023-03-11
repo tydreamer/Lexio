@@ -43,7 +43,7 @@ namespace Lexio.Models
             this.ChangedTerm = this.Term;
         }
 
-        protected internal override void SaveChanges()
+        public override void SaveChanges()
         {
             base.SaveChanges();
             this.Term = ChangedTerm;

@@ -6,5 +6,6 @@ namespace Lexio.Interfaces
     {
         bool MatchesUnsavedContent(IEnumerable<T> collection, out T? identicalItem);
         void EqualizeChangedData();
+        void SaveChanges();
     }
 }
