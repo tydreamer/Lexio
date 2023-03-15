@@ -4,7 +4,7 @@ using Lexio.Models;
 
 namespace Lexio.ViewModels.LearningModes
 {
-    public abstract class SingleWordViewModelBase : AnswerViewModelBase
+    public abstract class SingleWordViewModelBase : LearningModeViewModelBase
     {
         private int _wordIndex;
         private string _displayedTerm;
@@ -23,6 +23,18 @@ namespace Lexio.ViewModels.LearningModes
         }
 
         protected int WordIndexCorrected => _wordIndex + 1;
+        
+        protected string? Answer { get; set; }
+
+        protected void CheckAnswer()
+        {
+            
+        }
+
+        protected void ShowSolution()
+        {
+            
+        }
         
         protected void PreviousWord()
         {
