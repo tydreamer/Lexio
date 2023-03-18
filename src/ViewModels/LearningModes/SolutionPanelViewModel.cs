@@ -18,5 +18,7 @@ namespace Lexio.ViewModels.LearningModes
             get => _definition; 
             set => this.RaiseAndSetIfChanged(ref _definition, value);
         }
+        
+        internal AnswerViewModelBase? AnswerViewModel { get; init; }
     }
 }
