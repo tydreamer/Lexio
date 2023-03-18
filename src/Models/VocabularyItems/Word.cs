@@ -41,7 +41,7 @@ namespace Lexio.Models
             SubscribeAntonyms();
             
             foreach(LearningModeType value in Enum.GetValues(typeof(LearningModeType)))
-                KnownInModes.Add(value, LearningState.NotAsked);
+                SeenInModes.Add(value, LearningState.NotAsked);
         }
 
         [JsonConstructor]
@@ -50,7 +50,7 @@ namespace Lexio.Models
         {
             this.Synonyms = synonyms;
             this.Antonyms = antonyms;
-            this.KnownInModes = knownInModes;
+            this.SeenInModes = knownInModes;
             
             foreach (var item in Synonyms)
                 item.ContainerCollection = this.Synonyms;
@@ -80,7 +80,7 @@ namespace Lexio.Models
             }
         }
         
-        public Dictionary<LearningModeType, LearningState> KnownInModes { get; } = new();
+        public Dictionary<LearningModeType, LearningState> SeenInModes { get; } = new();
 
         [JsonIgnore]
         public int Index
