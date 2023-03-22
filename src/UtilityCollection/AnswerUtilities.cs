@@ -1,4 +1,5 @@
 using Lexio.Enums;
+using Lexio.Extensions;
 using Lexio.Models;
 using Lexio.ViewModels.LearningModes;
 
@@ -38,6 +39,8 @@ namespace Lexio.UtilityCollection
         {
             var learningMode = singleWordViewModel.LearningMode;
             var previousState = word.LearningStateInModes[learningMode];
+            if (previousState == state)
+                return;
             word.LearningStateInModes[learningMode] = state;
             singleWordViewModel.VisualizeLearningProgress(previousState, state);
         }
