@@ -1,10 +1,12 @@
+using Lexio.Enums;
 using Lexio.Extensions;
 using Lexio.Interfaces;
 using Lexio.Models;
+using Lexio.ViewModels.BaseClasses;
 
 namespace Lexio.ViewModels
 {
-    public class LessonViewModel : ViewModelBase, IDiscardableChanges
+    public class LessonViewModel : LessonViewModelBase, IDiscardableChanges
     {
         public LessonViewModel(Lesson lesson)
         {
@@ -21,6 +23,11 @@ namespace Lexio.ViewModels
             MainViewModel?.ReturnHome(false);
         }
         
+        protected override void ChangeTolerance(ErrorTolerance newTolerance)
+        {
+            // Change setting in lesson
+        }
+
         private void SaveChanges()
         {
             CurrentLesson.SaveChanges();
