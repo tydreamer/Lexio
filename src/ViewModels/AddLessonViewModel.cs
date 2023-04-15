@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using Lexio.Enums;
 using Lexio.Extensions;
 using Lexio.Interfaces;
 using Lexio.Models;
@@ -19,14 +18,7 @@ namespace Lexio.ViewModels
 
         private string CurrentName { get; set; } = string.Empty;
         private string CurrentDescription { get; set; } = string.Empty;
-        private LessonOptions CurrentOptions { get; set; }
         private string AdjustableItemsString => VocabularyItems.Count == 1 ? "item" : "items";
-        
-        protected override void ChangeTolerance(ErrorTolerance newTolerance)
-        {
-            if(newTolerance != ErrorTolerance.Custom)
-                CurrentOptions = LessonOptions.MatchTolerance(newTolerance);
-        }
 
         private void AddWord()
         {
