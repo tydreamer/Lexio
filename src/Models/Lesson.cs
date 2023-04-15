@@ -9,8 +9,6 @@ using System.Text.Json.Serialization;
 using Lexio.Enums;
 using Lexio.Interfaces;
 using Lexio.UtilityCollection;
-using Lexio.ViewModels;
-using Lexio.ViewModels.BaseClasses;
 
 namespace Lexio.Models
 {
@@ -23,7 +21,7 @@ namespace Lexio.Models
         
         private string _changedName = string.Empty;
         private string _changedDescription = string.Empty;
-        private LessonOptions _changedOptions;
+        private LessonOptions _changedOptions = null!;
         private readonly List<Word> _changedWords = new();
         
         public event PropertyChangedEventHandler? PropertyChanged;
