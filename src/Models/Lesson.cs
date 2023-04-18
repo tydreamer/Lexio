@@ -12,7 +12,7 @@ using Lexio.UtilityCollection;
 
 namespace Lexio.Models
 {
-    public class Lesson : IVocabularyContainer<Word>, INotifyPropertyChangedHelper, IDiscardableChanges
+    public class Lesson : IVocabularyContainer<Word>, INotifyPropertyChangedHelper
     {
         private string _name;
         private string _description;

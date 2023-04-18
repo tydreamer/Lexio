@@ -2,6 +2,7 @@ namespace Lexio.Interfaces
 {
     public interface IDiscardableChanges
     {
-        void DiscardChanges();
+        bool DataChanged { get; }
+        void ConfirmDiscarding();
     }
 }
