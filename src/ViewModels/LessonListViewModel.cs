@@ -36,5 +36,12 @@ namespace Lexio.ViewModels
             lessonViewModel.SelectedTolerance = (int)lesson.Options.CurrentTolerance;
             MainWindowViewModel.CurrentLesson = lesson;
         }
+
+        private void RemoveLesson(Lesson lesson)
+        {
+            Items.Remove(lesson);
+            DataManager.Lessons.Remove(lesson);
+            DataManager.SaveData();
+        }
     }
 }
