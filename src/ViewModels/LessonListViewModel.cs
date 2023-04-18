@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Avalonia.Media;
 using ReactiveUI;
 using Lexio.Models;
+using Lexio.ViewModels.Dialogs;
 
 namespace Lexio.ViewModels
 {
@@ -39,9 +42,21 @@ namespace Lexio.ViewModels
 
         private void RemoveLesson(Lesson lesson)
         {
-            Items.Remove(lesson);
-            DataManager.Lessons.Remove(lesson);
-            DataManager.SaveData();
+            if (MainViewModel is null)
+                return;
+            
+            Action confirmAction = () =>
+            {
+                Items.Remove(lesson);
+                DataManager.Lessons.Remove(lesson);
+                DataManager.SaveData();
+            };
+            string dialogTitle = $"Do you really want to remove the lesson \"{lesson.Name}\"?";
+            MainViewModel.CurrentDialog = new ConfirmationDialogViewModel(dialogTitle,
+                new [] { Color.Parse("#D64045"), Color.Parse("#808080") },
+                new[] { Colors.White, Colors.White },
+                new[] { "Remove", "Cancel" },
+                confirmAction);
         }
     }
 }
