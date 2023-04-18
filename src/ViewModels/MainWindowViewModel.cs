@@ -1,12 +1,14 @@
 ﻿using ReactiveUI;
 using Lexio.Interfaces;
 using Lexio.Models;
+using Lexio.ViewModels.BaseClasses;
 
 namespace Lexio.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
         private ViewModelBase _content;
+        private DialogViewModelBase? _currentDialog;
 
         public MainWindowViewModel()
         {
@@ -23,6 +25,12 @@ namespace Lexio.ViewModels
         {
             get => _content; 
             set => this.RaiseAndSetIfChanged(ref _content, value);
+        }
+        
+        internal DialogViewModelBase? CurrentDialog
+        {
+            get => _currentDialog;
+            set => this.RaiseAndSetIfChanged(ref _currentDialog, value);
         }
 
         internal void ReturnHome(bool discardChanges = true)
