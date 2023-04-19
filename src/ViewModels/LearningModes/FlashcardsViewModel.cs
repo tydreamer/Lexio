@@ -13,6 +13,8 @@ namespace Lexio.ViewModels.LearningModes
         {
             SetWord();
         }
+        
+        private bool ShowThesaurus { get; set; }
 
         protected override void PickWord(bool resetKnownWords = false, bool goForward = true)
         {
