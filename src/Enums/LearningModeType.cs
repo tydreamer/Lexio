@@ -1,11 +1,10 @@
-namespace Lexio.Enums
+namespace Lexio.Enums;
+
+public enum LearningModeType
 {
-    public enum LearningModeType
-    {
-        Flashcards,
-        Write,
-        MultipleChoice,
-        Thesaurus,
-        VocabularyList
-    }
+    Flashcards,
+    Write,
+    MultipleChoice,
+    Thesaurus,
+    VocabularyList
 }

@@ -1,7 +1,6 @@
-namespace Lexio.Interfaces
+namespace Lexio.Interfaces;
+
+public interface IIndexable
 {
-    public interface IIndexable
-    {
-        int Index { get; set; }
-    }
+    int Index { get; set; }
 }

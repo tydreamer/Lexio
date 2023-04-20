@@ -1,16 +1,15 @@
 using System;
 using Avalonia.Controls;
 
-namespace Lexio.Extensions
-{
-    public static partial class Extensions
-    {
-        public static void ShowDialogSafe(this Window window, Window? parentWindow)
-        {
-            if (parentWindow is null)
-                throw new ArgumentNullException(nameof(parentWindow));
+namespace Lexio.Extensions;
 
-            window.ShowDialog(parentWindow);
-        }
+public static partial class Extensions
+{
+    public static void ShowDialogSafe(this Window window, Window? parentWindow)
+    {
+        if (parentWindow is null)
+            throw new ArgumentNullException(nameof(parentWindow));
+
+        window.ShowDialog(parentWindow);
     }
 }

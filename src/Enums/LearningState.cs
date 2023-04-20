@@ -1,16 +1,15 @@
 using System;
 
-namespace Lexio.Enums
+namespace Lexio.Enums;
+
+[Flags]
+public enum LearningState
 {
-    [Flags]
-    public enum LearningState
-    {
-        VeryHard = 1,
-        WrongOnce = 2,
+    VeryHard = 1,
+    WrongOnce = 2,
         
-        NotAsked = 4,
+    NotAsked = 4,
         
-        KnownOnce = 8,
-        KnownPerfectly = 16
-    }
+    KnownOnce = 8,
+    KnownPerfectly = 16
 }

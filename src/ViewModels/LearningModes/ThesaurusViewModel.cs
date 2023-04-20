@@ -1,9 +1,8 @@
 using Lexio.Models;
 
-namespace Lexio.ViewModels.LearningModes
+namespace Lexio.ViewModels.LearningModes;
+
+public sealed class ThesaurusViewModel : LearningModeViewModelBase
 {
-    public sealed class ThesaurusViewModel : LearningModeViewModelBase
-    {
-        public ThesaurusViewModel(Lesson lesson) : base(lesson) { }
-    }
+    public ThesaurusViewModel(Lesson lesson) : base(lesson) { }
 }

@@ -1,8 +1,7 @@
-namespace Lexio.Interfaces
+namespace Lexio.Interfaces;
+
+public interface IDiscardableChanges
 {
-    public interface IDiscardableChanges
-    {
-        bool DataChanged { get; }
-        void ConfirmDiscarding();
-    }
+    bool DataChanged { get; }
+    void ConfirmDiscarding();
 }

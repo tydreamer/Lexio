@@ -1,14 +1,13 @@
 ﻿using ReactiveUI;
 
-namespace Lexio.ViewModels
+namespace Lexio.ViewModels;
+
+public abstract class ViewModelBase : ReactiveObject
 {
-    public abstract class ViewModelBase : ReactiveObject
+    protected ViewModelBase()
     {
-        protected ViewModelBase()
-        {
-            MainViewModel = MainWindowViewModel.Instance;
-        }
-        
-        protected MainWindowViewModel? MainViewModel { get;  }
+        MainViewModel = MainWindowViewModel.Instance;
     }
+        
+    protected MainWindowViewModel? MainViewModel { get;  }
 }

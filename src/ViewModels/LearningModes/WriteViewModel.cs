@@ -1,31 +1,30 @@
 using Lexio.Enums;
 using Lexio.Models;
 
-namespace Lexio.ViewModels.LearningModes
+namespace Lexio.ViewModels.LearningModes;
+
+public sealed class WriteViewModel : AnswerViewModelBase
 {
-    public sealed class WriteViewModel : AnswerViewModelBase
+    public WriteViewModel(Lesson lesson) : base(lesson)
     {
-        public WriteViewModel(Lesson lesson) : base(lesson)
-        {
-            SetWord();
-        }
+        SetWord();
+    }
 
-        protected override void PickWord(bool resetKnownWords = false, bool goForward = true)
-        {
-            base.PickWord(resetKnownWords, goForward);
-            SetWord();
-        }
+    protected override void PickWord(bool resetKnownWords = false, bool goForward = true)
+    {
+        base.PickWord(resetKnownWords, goForward);
+        SetWord();
+    }
 
-        protected override void ShuffleWords()
-        {
-            base.ShuffleWords();
-            SetWord();
-        }
+    protected override void ShuffleWords()
+    {
+        base.ShuffleWords();
+        SetWord();
+    }
 
-        protected override void InitCurrentWord()
-        {
-            SetLearningMode(LearningModeType.Write);
-            base.InitCurrentWord();
-        }
+    protected override void InitCurrentWord()
+    {
+        SetLearningMode(LearningModeType.Write);
+        base.InitCurrentWord();
     }
 }

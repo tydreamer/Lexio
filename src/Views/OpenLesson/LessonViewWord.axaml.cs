@@ -1,18 +1,17 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace Lexio.Views.OpenLesson
-{
-    public class LessonViewWord : UserControl
-    {
-        public LessonViewWord()
-        {
-            InitializeComponent();
-        }
+namespace Lexio.Views.OpenLesson;
 
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
+public class LessonViewWord : UserControl
+{
+    public LessonViewWord()
+    {
+        InitializeComponent();
+    }
+
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
     }
 }

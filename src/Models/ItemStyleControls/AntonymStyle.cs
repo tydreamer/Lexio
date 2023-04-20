@@ -1,7 +1,6 @@
-namespace Lexio.Models.ItemStyleControls
+namespace Lexio.Models.ItemStyleControls;
+
+public class AntonymStyle : ItemStyleBase<Word>
 {
-    public class AntonymStyle : ItemStyleBase<Word>
-    {
-        public AntonymStyle(Word word) : base(word) { }
-    }
+    public AntonymStyle(Word word) : base(word) { }
 }

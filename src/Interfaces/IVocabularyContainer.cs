@@ -1,10 +1,9 @@
 using System.Collections.ObjectModel;
 using Lexio.Models;
 
-namespace Lexio.Interfaces
+namespace Lexio.Interfaces;
+
+public interface IVocabularyContainer<T> where T : VocabularyItem
 {
-    public interface IVocabularyContainer<T> where T : VocabularyItem
-    {
-        ObservableCollection<T> VocabularyItems { get; }
-    }
+    ObservableCollection<T> VocabularyItems { get; }
 }

@@ -1,7 +1,6 @@
-namespace Lexio.Models.ItemStyleControls
+namespace Lexio.Models.ItemStyleControls;
+
+public class SynonymStyle : ItemStyleBase<Word>
 {
-    public class SynonymStyle : ItemStyleBase<Word>
-    {
-        public SynonymStyle(Word word) : base(word) { }
-    }
+    public SynonymStyle(Word word) : base(word) { }
 }
