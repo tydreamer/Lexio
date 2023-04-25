@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:learningModes="clr-namespace:Lexio.Views.LearningModes"
+             xmlns:views="clr-namespace:Lexio.Views"
+             xmlns:secondaryElements="clr-namespace:Lexio.Views.LearningModes.SecondaryElements"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Lexio.Views.LearningModes.ThesaurusView">
+    <Grid ColumnDefinitions="1*,3*">
+        <learningModes:LearningModeSidebarView Grid.Column="0" DataContext="{Binding}">
+            <learningModes:LearningModeSidebarView.AdditionalContent>
+                <StackPanel Orientation="Vertical">
+                    <views:LessonOptionItem Description="Ask Synonyms" IsInlined="True" Margin="0,10,0,0">
+                        <views:LessonOptionItem.TooltipText>
+                            Should synonyms be asked?
+                        </views:LessonOptionItem.TooltipText>
+                        <views:LessonOptionItem.MainContent>
+                            <CheckBox DataContext="{Binding $parent[UserControl].DataContext}"
+                                      IsChecked="{Binding AskSynonyms}"/>
+                        </views:LessonOptionItem.MainContent>
+                    </views:LessonOptionItem>
+                    <views:LessonOptionItem Description="Ask Antonyms" IsInlined="True" Margin="0,0,0,25">
+                        <views:LessonOptionItem.TooltipText>
+                            Should antonyms be asked?
+                        </views:LessonOptionItem.TooltipText>
+                        <views:LessonOptionItem.MainContent>
+                            <CheckBox DataContext="{Binding $parent[UserControl].DataContext}"
+                                      IsChecked="{Binding AskAntonyms}"/>
+                        </views:LessonOptionItem.MainContent>
+                    </views:LessonOptionItem>
+                </StackPanel>
+            </learningModes:LearningModeSidebarView.AdditionalContent>
+        </learningModes:LearningModeSidebarView>
+        <secondaryElements:AnswerView Grid.Column="1" DataContext="{Binding}">
+            <secondaryElements:AnswerView.AdditionalTitle>
+                <TextBlock Foreground="{StaticResource OppositeAccent}" FontSize="28">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="Specify {0} {1} for:">
+                            <Binding Path="IndefiniteArticle"/>
+                            <Binding Path="ThesaurusType"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </secondaryElements:AnswerView.AdditionalTitle>
+        </secondaryElements:AnswerView>
+    </Grid>
+</UserControl>

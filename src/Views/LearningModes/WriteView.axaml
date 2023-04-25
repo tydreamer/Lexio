@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:learningModes="clr-namespace:Lexio.Views.LearningModes"
              xmlns:views="clr-namespace:Lexio.Views"
+             xmlns:secondaryElements="clr-namespace:Lexio.Views.LearningModes.SecondaryElements"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Lexio.Views.LearningModes.WriteView">
-    
     <Grid ColumnDefinitions="1*,3*">
         <learningModes:LearningModeSidebarView Grid.Column="0" DataContext="{Binding}">
             <learningModes:LearningModeSidebarView.AdditionalContent>
@@ -32,64 +32,6 @@
                 </StackPanel>
             </learningModes:LearningModeSidebarView.AdditionalContent>
         </learningModes:LearningModeSidebarView>
-        <Grid Grid.Column="1" RowDefinitions="*,*" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-              Margin="30,0">
-            <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"
-                       Foreground="{StaticResource MainGrey}" Margin="0,0,0,50">
-                <TextBlock.Text>
-                    <MultiBinding StringFormat="\{0\}/\{1\}">
-                        <Binding Path="WordIndexCorrected"/>
-                        <Binding Path="CurrentLesson.VocabularyItems.Count"/>
-                    </MultiBinding>
-                </TextBlock.Text>
-            </TextBlock>
-            <Grid Grid.Row="0" ColumnDefinitions="*,Auto" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                  IsVisible="{Binding !IsSolutionShown}" Margin="30,0">
-                <Viewbox Grid.Column="0" Height="84" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,60,0">
-                    <TextBlock Foreground="{StaticResource OppositeAccent}" Text="{Binding DisplayedTerm}"/>
-                </Viewbox>
-                <ToggleButton Grid.Column="1" x:Name="Star" Classes="star-toggle" VerticalAlignment="Center"
-                              Checked="OnStarChecked" Unchecked="OnStarUnchecked" IsChecked="{Binding IsCurrentWordDifficult}"
-                              Template="{StaticResource ToggleStarShapeTemplate}" Width="64" Height="64"/>
-            </Grid>
-            <Grid Grid.Row="1" RowDefinitions="Auto,Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="30,0">
-                <Grid Grid.Row="0" ColumnDefinitions="*,Auto" HorizontalAlignment="Stretch" Margin="30,0,30,30">
-                    <TextBox Grid.Column="0" Name="MainAnswerTextbox"
-                             BorderBrush="{StaticResource OppositeAccent}" BorderThickness="0,0,0,2"
-                             CornerRadius="0" Background="{StaticResource FullyTransparent}"
-                             AcceptsReturn="False" AcceptsTab="False" Height="60" FontSize="42" HorizontalAlignment="Stretch" 
-                             VerticalContentAlignment="Center" Padding="0,0,0,5" Margin="0,0,25,0"
-                             Text="{Binding Answer}" Foreground="{Binding AnswerColor}"
-                             IsReadOnly="{Binding IsSolutionShown}" Focusable="True">
-                        <TextBox.Styles>
-                            <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
-                                <Setter Property="Background" Value="{TemplateBinding Background}"/>
-                            </Style>
-                            <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
-                                <Setter Property="BorderThickness" Value="0,0,0,3"/>
-                                <Setter Property="Background" Value="{TemplateBinding Background}"/>
-                            </Style>
-                        </TextBox.Styles>
-                    </TextBox>
-                    <Button Grid.Column="1" Classes="highlight-no-change selectable-button-effect" Width="180" Height="60"
-                            Background="{StaticResource AppBlue}" Foreground="{StaticResource SameAccent}"
-                            Command="{Binding CheckAnswer}" IsEnabled="{Binding !IsSolutionShown}"
-                            HotKey="Enter">
-                        <TextBlock Foreground="{StaticResource SameAccent}" FontSize="22" 
-                                   HorizontalAlignment="Center" VerticalAlignment="Center" Text="Answer"/>
-                    </Button>
-                </Grid>
-                <Button Grid.Row="1" Classes="selectable-button-effect" HorizontalAlignment="Center"
-                        Command="{Binding ShowSolution}">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <TextBlock FontSize="22" Foreground="{StaticResource MainRed}" Text="Show solution"/>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-            </Grid>
-        </Grid>
-        <ContentControl Grid.Column="1" Content="{Binding SolutionPanel}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                        IsVisible="{Binding IsSolutionShown}"/>
+        <secondaryElements:AnswerView Grid.Column="1" DataContext="{Binding}"/>
     </Grid>
 </UserControl>
