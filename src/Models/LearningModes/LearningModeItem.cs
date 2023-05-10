@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reactive;
 using System.Runtime.CompilerServices;
@@ -10,15 +11,13 @@ using ReactiveUI;
 using Lexio.Enums;
 using Lexio.Interfaces;
 using Lexio.ViewModels;
-using Path = System.IO.Path;
 
 namespace Lexio.Models;
 
 public class LearningModeItem : INotifyPropertyChangedHelper
 {
-    private static readonly string _assetsPath =
-        Path.Combine(("avares:" + Path.DirectorySeparatorChar + Path.DirectorySeparatorChar + "Lexio"), "Assets");
-        
+    private const string AssetsPath = "avares://Lexio/Assets/";
+    
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public LearningModeItem(string iconFileName, string name, string description, Action clickAction, LearningModeType learningMode)
@@ -56,11 +55,19 @@ public class LearningModeItem : INotifyPropertyChangedHelper
 
     private static Bitmap? CreateImage(string fileName)
     {
-        string path = Path.Combine(_assetsPath, fileName);
+        string path = $"{AssetsPath}{fileName}";
         var uri = new Uri(path);
-            
-        var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-        var asset = assets?.Open(uri);
+        
+        Stream? asset = null;
+        try
+        {
+            IAssetLoader? assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            asset = assets?.Open(uri);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
 
         return asset is null ? null : new Bitmap(asset);
     }
