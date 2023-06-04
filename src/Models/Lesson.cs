@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 using Lexio.Enums;
+using Lexio.Extensions;
 using Lexio.Interfaces;
 using Lexio.UtilityCollection;
 
@@ -142,6 +143,18 @@ public class Lesson : IVocabularyContainer<Word>, INotifyPropertyChangedHelper
         {
             _changedDescription = value.Trim();
             NotifyPropertyChanged(nameof(DataChanged));
+        }
+    }
+
+    private int KnownWords => VocabularyItems.Count(x => x.LearningStatus.CustomHasFlag(Utilities.KnownFlags));
+
+    private int KnownPercentage
+    {
+        get
+        {
+            if (VocabularyItems.Count == 0)
+                return 0;
+            return (int)Math.Round((KnownWords / (float) VocabularyItems.Count) * 100);
         }
     }
 
