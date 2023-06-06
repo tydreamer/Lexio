@@ -10,14 +10,13 @@ using Avalonia.Platform;
 using ReactiveUI;
 using Lexio.Enums;
 using Lexio.Interfaces;
+using Lexio.UtilityCollection;
 using Lexio.ViewModels;
 
 namespace Lexio.Models;
 
 public class LearningModeItem : INotifyPropertyChangedHelper
 {
-    private const string AssetsPath = "avares://Lexio/Assets/";
-    
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public LearningModeItem(string iconFileName, string name, string description, Action clickAction, LearningModeType learningMode)
@@ -55,7 +54,7 @@ public class LearningModeItem : INotifyPropertyChangedHelper
 
     private static Bitmap? CreateImage(string fileName)
     {
-        string path = $"{AssetsPath}{fileName}";
+        string path = $"{Utilities.AssetsPath}{fileName}";
         var uri = new Uri(path);
         
         Stream? asset = null;
