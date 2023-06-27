@@ -3,6 +3,7 @@ using System.Linq;
 using Avalonia.Media.Imaging;
 using ReactiveUI;
 using Lexio.Enums;
+using Lexio.Extensions;
 using Lexio.Models;
 using Lexio.UtilityCollection;
 
@@ -91,9 +92,8 @@ public abstract class LearningModeViewModelBase : ViewModelBase
     {
         if (!ShufflingAllowed)
             return;
-
-        var rnd = new Random();
-        WordsList = WordsList.OrderBy(_ => rnd.Next()).ToArray();
+        
+        WordsList = WordsList.Shuffle().ToArray();
         CurrentLesson.IsShuffledInModes[this.LearningMode] = true;
         DataManager.SaveData();
     }
