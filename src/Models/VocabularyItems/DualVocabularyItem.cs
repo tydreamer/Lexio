@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using Lexio.Extensions;
 using Lexio.Interfaces;
+using Lexio.UtilityCollection;
 
 namespace Lexio.Models;
 
@@ -59,4 +61,13 @@ public class DualVocabularyItem : VocabularyItem, IContentVerification<DualVocab
         IsDifficult = this.IsDifficult,
         LearningStateInModes = this.LearningStateInModes
     };
+
+    protected internal override bool ContainsTerm(string search) // `search` assumed to be modified already with `Utilities.ModifyAnswer`
+    {
+        if (base.ContainsTerm(search))
+            return true;
+        string modifiedTerm = Utilities.ModifyAnswer(ChangedTerm, ModificationSettings);
+        int tolerance = search.Length / SearchToleranceDivisor;
+        return modifiedTerm.Contains(search) || modifiedTerm.LongestCommonSubstringLength(search) >= search.Length - tolerance;
+    }
 }

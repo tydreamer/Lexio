@@ -11,6 +11,7 @@ using Avalonia;
 using Avalonia.Media;
 using ReactiveUI;
 using Lexio.Enums;
+using Lexio.Extensions;
 using Lexio.Interfaces;
 using Lexio.Models.ItemStyleControls;
 using Lexio.ResourcesNamespace;
@@ -235,6 +236,14 @@ public class Word : DualVocabularyItem, INotifyPropertyChangedHelper, IIndexable
         IsDifficult = this.IsDifficult,
         LearningStateInModes = this.LearningStateInModes
     };
+
+    protected internal override bool ContainsTerm(string search)
+    {
+        string modifiedSearch = Utilities.ModifyAnswer(search, ModificationSettings);
+        if (base.ContainsTerm(modifiedSearch))
+            return true;
+        return Synonyms.Any(x => x.ContainsTerm(modifiedSearch)) || Antonyms.Any(x => x.ContainsTerm(modifiedSearch));
+    }
 
     internal void ClearCollections()
     {
