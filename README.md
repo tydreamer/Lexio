@@ -1,56 +1,46 @@
-# <span style="color:#5F8BB0">Lexio</span>
-<img src="Assets/App-Icon.png" width="10%"></img>
+# Lexio
 
-Learning vocabulary can be a horror, but with the right tool, the horror becomes pure pleasure. 
-Fear no more, learn with **Lexio**, a modern, reliable, highly customizable and extraordinarily feature-rich solution 
-that makes learning vocabulary easier, with support for sometimes extraordinary but extremely important aspects, available for Windows, MacOS and Linux. 
+![Lexio lesson dashboard](Assets/screenshot.png)
 
-And... it is 100% **free** and **open-source**.
+**Lexio** is a cross-platform desktop app for building vocabulary lessons and practicing them your way—flashcards, typing drills, multiple choice, synonym/antonym focus, or a simple word list. It runs on **Windows**, **macOS**, and **Linux**, stays entirely on your machine, and is **free** and **open source**.
 
-## A non-exhaustive list of the most important features
-- <span style="color:#5F8BB0">**Organize them:**</span> Vocabulary can be divided into lessons.
-- <span style="color:#5F8BB0">**Synonyms and Antonyms:**</span> Specify and learn synonyms and antonyms of a word. 
-This is an often missing feature, which is highly valued in Lexio.
-- <span style="color:#5F8BB0">**Variety of learning modes:**</span> Find your own learning style that suits you best. Choose from:
-  - **Flashcards**: Memorize vocabulary super fast by flipping flashcards.
-  - **Write**: The best solution for learning the exact spelling of a word, and it's quite similar to an exam too.
-  - **Multiple Choice**: Choose the correct answer from 4 options.
-  - **Synonyms and Antonyms**: Focus on learning synonyms and antonyms only.
-  - **Vocabulary List**: Do you prefer just looking at a list of words with their term and definition 
-  as well as optionally their synonyms and antonyms? Then this is your choice.
-- <span style="color:#5F8BB0">**To know, or not to know, that's the question:**</span> 
-Words you define correctly or incorrectly are automatically tracked, so that you know how much you still need to learn. 
-This also leads us to the next important point...
-- <span style="color:#5F8BB0">**Progressive assistance:**</span> Let the application ask you words, you don't know well, more frequently, 
-so you can focus on the important things. This option can be turned on and off as you like, as with many other aspects in the application.
-- <span style="color:#5F8BB0">**Freedom with settings:**</span> Customize each learning mode individually 
-with a wide range of options that allow you to adjust many aspects of learning with Lexio to your needs.
-- <span style="color:#5F8BB0">**Intelligent examination:**</span> The application offers a number of settings that control 
-how strictly your written definition should be compared with the actual definition of a term.
+---
 
+## Highlights
 
-- <span style="color:#5F8BB0">**Beautiful and responsive design:**</span> 
-The design of Lexio's user interface comes from the heart. Enjoy the beauty, while simplicity has not been omitted.
+| | |
+|---|---|
+| **Lessons** | Group words by topic, file, or language—each lesson tracks its own progress. |
+| **Rich entries** | Terms, definitions, and optional synonyms and antonyms in one place. |
+| **Learning modes** | Flashcards · Write · Multiple choice · Synonyms & antonyms · Vocabulary list |
+| **Progress** | Correct and incorrect answers are remembered per mode so you see what still needs work. |
+| **Smart review** | Optional weighting toward words you struggle with. |
+| **Fine-tuned practice** | Per-mode settings, including how strictly written answers are graded. |
+| **Offline & private** | No accounts, no telemetry, no network required—data lives only on your device. |
 
-and more...
+### Learning modes (at a glance)
+
+- **Flashcards** — Flip through term and definition sides.
+- **Write** — Type the answer; good for spelling and exam-style recall.
+- **Multiple choice** — Pick the right definition from four options.
+- **Synonyms & antonyms** — Practice related words without mixing in unrelated terms.
+- **Vocabulary list** — Browse terms, definitions, and related words in one view.
+
+---
 
 ## Privacy
-Privacy is a big deal at Lexio, bigger than in any other app or website you know. Why?
-Because Lexio collects absolutely no data from the user and requires no internet connection for any of the features.
-It is a 100% "local" application without any hidden or visible data transfers. No server, no problems.
-Only your lessons with the vocabulary are stored **locally**, but are not visible to anyone except the user of the device on which they're saved.
-Hooray for learning incognito!
 
-## Development
-This tool is being developed with the open-source .NET XAML UI-framework [Avalonia](https://avaloniaui.net/) and C#.
+Lexio does not collect usage data or talk to a backend. Lessons and progress are stored **locally** on your computer. Import and export are file-based—you control where backups go.
 
-## Gallery
-<img src="https://github.com/duck-dev/Lexio/assets/61479436/b507fdf2-5560-499b-8e80-0edefe56ad3e" width="30%" alt="Lesson list" style="align-items: center; justify-content: center;"></img> 
-<img src="https://user-images.githubusercontent.com/61479436/192097507-8f431e3a-5ec4-442e-8b8a-0c605941f483.png" width="30%" alt="Create lesson" style="align-items: center; justify-content: center;"></img> 
-<img src="https://github.com/duck-dev/Lexio/assets/61479436/8e107075-fcf7-471e-be00-ef4632f43d1a" width="30%" alt="Open lesson" style="align-items: center; justify-content: center;"></img> 
-<img src="https://user-images.githubusercontent.com/61479436/188884310-7c1e9573-e0a1-4dbe-b958-c0f2bf42e41a.png" width="30%" alt="Flashcards" style="align-items: center; justify-content: center;"></img> 
-<img src="https://user-images.githubusercontent.com/61479436/188884335-d4c59366-43e2-41a0-842c-525a346b2037.png" width="30%" alt="Write" style="align-items: center; justify-content: center;"></img>
-<img src="https://user-images.githubusercontent.com/61479436/188285810-253dd234-677e-48f9-b647-bade13c2a60f.png" width="30%" alt="Wrong answer" style="align-items: center; justify-content: center;"></img>
-<img src="https://user-images.githubusercontent.com/61479436/190468562-358e5958-7da8-4681-a93b-43564ae5747e.png" width="30%" alt="Multiple Choice (wrong answer)" style="align-items: center; justify-content: center;"></img> 
-<img src="https://user-images.githubusercontent.com/61479436/188884330-5dc95ddb-78d4-4ec4-9225-864833cea6b2.png" width="30%" alt="Synonyms and Antonyms" style="align-items: center; justify-content: center;"></img> 
-<img src="https://user-images.githubusercontent.com/61479436/188884332-a6804914-ffc6-4c45-a995-ae044bf86371.png" width="30%" alt="Vocabulary List" style="align-items: center; justify-content: center;"></img> 
+---
+
+## Built with
+
+- [.NET](https://dotnet.microsoft.com/) and [C#](https://learn.microsoft.com/dotnet/csharp/)
+- [Avalonia UI](https://avaloniaui.net/) for the cross-platform interface
+
+---
+
+## License
+
+Open source—see the repository license file for terms.
